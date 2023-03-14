@@ -188,7 +188,99 @@ function Task7(){
     if (seconds === undefined) {
         seconds = "00 - секунд";
     }
-    document.Clock.timer.value = hours + ":" + minutes + ":" + seconds;
+    document.task7.timer.value = hours + ":" + minutes + ":" + seconds;
     setTimeout("Task7()", 1000);
 }
 Task7();
+
+
+
+/*
+8. Напишіть функцію, яка приймає години, хвилини та секунди 
+і повертає цей час у секунди.
+*/
+
+
+
+let result = 0;
+
+function Task8(){
+    let currDate = new Date();
+    let hours = currDate.getHours();
+    let minutes = currDate.getMinutes();
+    let seconds = currDate.getSeconds();
+
+    result = (hours * 3600) + (minutes * 60) + (seconds);
+    console.log(result);
+
+    if (minutes <= 9) {
+    minutes = "0" + minutes;
+    }
+    if (seconds <= 9) {
+    seconds = "0" + seconds;
+    }
+    document.task8.timer.value = hours + ":" + minutes + ":" + seconds;
+}
+Task8();
+
+const submitTaskSecond = document.querySelector(".btn_task8");
+const inputSecond = document.querySelector(".inputSecond");
+
+submitTaskSecond.onclick = function () {
+    Task8();
+
+    if (submitTaskSecond) {
+
+        document.taskSecond.second.value = result + " секунд";
+    } 
+}
+
+
+
+/*
+9. Напищіть функцію, яка приймає кількість секунд, переводить 
+їх у години, хвилини та секунди і повертає у вигляді 
+рядка «година:хвилини:секунди».
+*/
+console.clear();
+
+const submit9 = document.querySelector(".btn_task9");
+const OnInput9 = document.querySelector(".input_task9");
+const OutInput9 = document.querySelector(".input9");
+
+submit9.onclick = function () {
+
+    if (submit9) {
+        const secundsUser = OnInput9.value;
+        
+        let secundsTask9 = secundsUser;
+
+        const hoursTask9 = Math.floor(secundsTask9 / 3600);
+        console.log(hoursTask9);
+        const minutesTask9 = Math.floor((secundsTask9 % 3600) / 60);
+        console.log(minutesTask9);
+        const secsTask9 = secundsTask9 % 60;
+        console.log(secsTask9);
+        const resultTask9 = `${hoursTask9.toString().padStart(2, '0')}:${minutesTask9.toString().padStart(2, '0')}:${secsTask9.toString().padStart(2, '0')}`;
+
+        console.log(resultTask9);
+
+        document.taskNine.secondNine.value = resultTask9;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
