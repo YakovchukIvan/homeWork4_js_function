@@ -7,17 +7,29 @@
 0 - якщо числа рівні.
 */
 
-// function task1() {
-//     let num1 = +prompt("Введіть перше число");
-//     let num2 = +prompt("Введіть друге число");
-//     if (num1 < num2) {
-//         console.log(-1);
-//     } else if (num1 > num2) {
-//         console.log(1);
-//     } else {console.log(0);}
-// }
+const submit1 = document.querySelector(".btn_task1");
+const OnInput1_1 = document.querySelector(".input_task1-1");
+const OnInput1_2 = document.querySelector(".input_task1-2");
 
-// task1();
+submit1.onclick = function () {
+
+    let resultTask1 = 0;
+
+    if (submit1) {
+
+        let num1 = OnInput1_1.value;
+        let num2 = OnInput1_2.value;
+
+        if (num1 < num2) {
+            resultTask1 = -1;
+        } else if (num1 > num2) {
+            resultTask1 = 1;
+        } else {resultTask1 = 0;}
+
+        document.taskOne.taskOneInput.value = resultTask1;
+    }
+
+}
 
 
 
@@ -26,17 +38,29 @@
 їй числа
 */
 
-// let num = 1; 
 
-// function factorial() {
-//   let result = 1;
-//   for(let i = 2; i <= num; i++) {
-//     result *= i;
-//   }
-//   return result;
-// }
-// console.log(factorial(num)); 
+const submit2 = document.querySelector(".btn_task2");
+const OnInput2 = document.querySelector(".input_task2");
 
+
+submit2.onclick = function () {
+
+    if (submit2) {
+
+        let num = OnInput2.value;
+
+        let resultTask2 = 1;
+        for(let i = 2; i <= num; i++) {
+            resultTask2 *= i;
+        }
+        OnInput2.value = "";
+
+        return document.taskTwo.taskTwoInput.value = resultTask2;
+    }
+
+
+
+}
 
 
 /*
@@ -44,6 +68,67 @@
 перетворює їх на одне число. Наприклад: цифри 1, 4, 9 
 перетворяться на число 149.
 */
+
+const submit3 = document.querySelector(".btn_task3");
+const OnInput3 = document.querySelector(".input_task3");
+const OutInput3 = document.querySelector(".input_taskThree");
+
+let num1 = 0;
+let num2 = 0;
+let num3 = 0;
+
+let counter = 0;
+
+
+submit3.onclick = function () {
+
+    if (submit3) {
+        let num = OnInput3.value;
+        if (counter === 0) {
+
+            if (num1 === 0) {
+                num1 = num;
+            } else if (num2 === 0) {
+                num2 = num;
+            } else if (num3 === 0) {
+                num3 = num;
+            }
+            console.log(num);
+            OnInput3.value = ""; // очищує input після нажимання кнопки
+            OutInput3.value = ""; // очищує input з результатом якщо потрібно йти по новому кругу
+        } else if (counter > 0) {
+            counter= counter - 1;
+            num = 0;
+        }
+        
+    }
+
+
+
+
+    if(num3 > 0) {
+        console.log(num1);
+        console.log(num2);
+        console.log(num3);
+        let resultTask3 = num1.toString() + num2.toString() + num3.toString();
+        console.log(resultTask3);
+        document.task3.inputOnThree.value = `${num1}, ${num2}, ${num3}`;
+        document.taskThree.taskThreeInput.value = resultTask3;
+        num1 = 0;
+        num2 = 0;
+        num3 = 0;
+        counter++;
+        console.log(num1);
+        console.log(num2);
+        console.log(num3);
+        console.log("counter", counter);
+    }
+
+}
+
+
+
+
 
 // let num1 = 2;
 // let num2 = 3;
@@ -211,7 +296,7 @@ function Task8(){
     let seconds = currDate.getSeconds();
 
     result = (hours * 3600) + (minutes * 60) + (seconds);
-    console.log(result);
+    // console.log(result);
 
     if (minutes <= 9) {
     minutes = "0" + minutes;
@@ -242,7 +327,6 @@ submitTaskSecond.onclick = function () {
 їх у години, хвилини та секунди і повертає у вигляді 
 рядка «година:хвилини:секунди».
 */
-console.clear();
 
 const submit9 = document.querySelector(".btn_task9");
 const OnInput9 = document.querySelector(".input_task9");
@@ -272,7 +356,13 @@ submit9.onclick = function () {
 
 
 
-
+/*
+10. Напишіть функцію, яка підраховує різницю між датами. Функція приймає 6 параметрів, що описують 2 дати, 
+і повертає результат у вигляді рядка «година:хвилини:
+секунди». Під час виконання завдання використовуйте 
+функції з попередніх 2 завдань: спочатку обидві дати переведіть у секунди, дізнайтеся різницю в секундах, а потім 
+різницю переведіть назад у «година:хвилини:секунди».
+*/
 
 
 
