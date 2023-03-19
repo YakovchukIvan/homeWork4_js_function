@@ -215,10 +215,11 @@ Task5(12); // виведе false
 є досконалими. Використовуйте написану раніше функцію,
 щоб перевірити число на досконалість.
 */
+console.clear();
 
-// let min = 2;
-// let max = 10;
-// let sum = 0;
+let min = 2;
+let max = 10;
+let sum = 0;
 
 // function Task6() {
 //     for(let i = min;i < max; i++) {
@@ -231,40 +232,64 @@ Task5(12); // виведе false
 //                 console.log(`Good`, sum === i);
 //             }
 //         }
-
-
-
 //     }
 // //   return sum === number;
 // }
 
 // Task6(); 
 
-// function isPerfect(num) {
-//   let sum = 0;
-//   for (let i = 1; i < num; i++) {
-//     if (num % i === 0) {
-//       sum += i;
-//     }
-//   }
-//   return sum === num;
-// }
+const submit6 = document.querySelector(".btn_task6");
+const OnInput6_1 = document.querySelector(".input_task6-1");
+const OnInput6_2 = document.querySelector(".input_task6-2");
 
-// function perfectRange(min, max) {
-//   let found = false;
-//   for (let i = min; i <= max; i++) {
-//     if (isPerfect(i)) {
-//       console.log(i);
-//       found = true;
-//     }
-//   }
-//   if (!found) {
-//     console.log("No perfect numbers found in range.");
-//   }
-// }
+
+function isPerfect(num) {
+  let sum = 0;
+  for (let i = 1; i < num; i++) {
+    if (num % i === 0) {
+      sum += i;
+    }
+  }
+  return sum === num;
+}
+
+function perfectRange(min, max) {
+  let found = false;
+  let number = [];
+  console.log(number.length);
+  for (let i = min; i <= max; i++) {
+    if (isPerfect(i)) {
+
+        number.push(i);
+        console.log(i);
+        document.taskSix.taskSixInput.value = `${number}`;
+        found = true;
+    }
+  }
+    if (!found) {
+        console.log("No perfect numbers found in range.");
+    }
+}
+
+
+submit6.onclick = function () {
+
+    if (submit1) {
+        let num1 = OnInput6_1.value;
+        let num2 = OnInput6_2.value;
+        perfectRange(num1, num2)
+    }
+
+}
+
+
+
 
 // perfectRange(1, 100); // виведе 6 та 28
 // perfectRange(1, 1000); // виведе 6, 28 та 496
+
+
+
 
 
 
@@ -364,15 +389,10 @@ submit9.onclick = function () {
         let secundsTask9 = secundsUser;
 
         const hoursTask9 = Math.floor(secundsTask9 / 3600);
-        console.log(hoursTask9);
         const minutesTask9 = Math.floor((secundsTask9 % 3600) / 60);
-        console.log(minutesTask9);
         const secsTask9 = secundsTask9 % 60;
-        console.log(secsTask9);
         const resultTask9 = `${hoursTask9.toString().padStart(2, '0')}:${minutesTask9.toString().padStart(2, '0')}:${secsTask9.toString().padStart(2, '0')}`;
-
-        console.log(resultTask9);
-
+        
         document.taskNine.secondNine.value = resultTask9;
     }
 
