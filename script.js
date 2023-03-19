@@ -72,75 +72,45 @@ submit2.onclick = function () {
 const submit3 = document.querySelector(".btn_task3");
 const OnInput3 = document.querySelector(".input_task3");
 const OutInput3 = document.querySelector(".input_taskThree");
+const btnReset = document.querySelector(".btn-reset3");
 
 let num1 = 0;
 let num2 = 0;
 let num3 = 0;
-
-let counter = 0;
 
 
 submit3.onclick = function () {
 
     if (submit3) {
         let num = OnInput3.value;
-        if (counter === 0) {
-
-            if (num1 === 0) {
-                num1 = num;
-            } else if (num2 === 0) {
-                num2 = num;
-            } else if (num3 === 0) {
-                num3 = num;
-            }
-            console.log(num);
-            OnInput3.value = ""; // очищує input після нажимання кнопки
-            OutInput3.value = ""; // очищує input з результатом якщо потрібно йти по новому кругу
-        } else if (counter > 0) {
-            counter= counter - 1;
-            num = 0;
+        if (num1 === 0) {
+            num1 = num;
+        } else if (num2 === 0) {
+            num2 = num;
+        } else if (num3 === 0) {
+            num3 = num;
         }
-        
+        OnInput3.value = ""; // очищує input після нажимання кнопки
+        OutInput3.value = ""; // очищує input з результатом якщо потрібно йти по новому кругу
     }
 
-
-
-
     if(num3 > 0) {
-        console.log(num1);
-        console.log(num2);
-        console.log(num3);
         let resultTask3 = num1.toString() + num2.toString() + num3.toString();
-        console.log(resultTask3);
-        document.task3.inputOnThree.value = `${num1}, ${num2}, ${num3}`;
-        document.taskThree.taskThreeInput.value = resultTask3;
-        num1 = 0;
-        num2 = 0;
-        num3 = 0;
-        counter++;
-        console.log(num1);
-        console.log(num2);
-        console.log(num3);
-        console.log("counter", counter);
+        document.task3.inputOnThree.value = `${num1}, ${num2}, ${num3}`; // виводить всі три числа які ми ввели
+        document.taskThree.taskThreeInput.value = resultTask3; // виводить числа разом
     }
 
 }
 
-
-
-
-
-// let num1 = 2;
-// let num2 = 3;
-// let num3 = 4;
-
-// function task3() {
-//     let result = num1.toString() + num2.toString() + num3.toString();
-//     console.log(Number(result));
-// }
-
-
-// task3();
+btnReset.onclick = function () { // обнуляє inputu
+    if (btnReset) {
+        OnInput3.value = "";
+        OutInput3.value = "";
+        num1 = 0;
+        num2 = 0;
+        num3 = 0;
+    }
+}
 
 
 
@@ -150,16 +120,43 @@ submit3.onclick = function () {
 1 параметр, вона вираховує площу квадрата.
 */
 
-// let length = 2;
-// let width = 4;
 
-// function task4() {
-//     let result = 0;
-//     result = length * width;
-//     return result;
-// }
+const submit4 = document.querySelector(".btn_task4");
+const OnInput4 = document.querySelector(".input_task4");
+const OutInput4 = document.querySelector(".input_taskFour");
 
-// console.log(task4());
+let length = 0;
+let width = 0;
+
+submit4.onclick = function () {
+    if (submit4) {
+
+        let num = OnInput4.value;
+
+        if (length === 0) {
+            length = num;
+        } else if (width === 0) {
+            width = num;
+        }
+        task4();
+        OnInput4.value = ""; // очищує input після нажимання кнопки
+    }
+
+    if(width > 0) {
+        let resultTask4 = length * width;
+        document.task4.inputOnFour.value = `${length} + ${width}`;
+        document.taskFour.inputOutFour.value = `${resultTask4} ²`;
+    }
+}
+
+function task4() {
+    if (OutInput4.value) {
+        OnInput4.value = "";
+        OutInput4.value = "";
+        length = 0;
+        width = 0;
+    }
+}
 
 
 
@@ -169,19 +166,46 @@ submit3.onclick = function () {
 всіх своїх власних дільників.
 */
 
-// function Task5(number) {
-//   let sum = 0;
-//   for(let i = 1; i < number; i++) {
-//     if(number % i === 0) {
-//       sum += i;
+
+// const submit5 = document.querySelector(".btn_task5");
+// const OnInput5 = document.querySelector(".input_task5");
+// const OutInput5 = document.querySelector(".input_taskFive");
+
+
+// let numberTaskFive = 0;
+
+// submit5.onclick = function () {
+//     if (submit5) {
+//         numberTaskFive = OnInput5.value;
+//         Task5(numberTaskFive);
+ 
+//         OnInput5.value = ""; // очищує input після нажимання кнопки
 //     }
-//   }
-//   return sum === number;
+
 // }
 
-// console.log(Task5(6)); // виведе true
-// console.log(Task5(28)); // виведе true
-// console.log(Task5(12)); // виведе false
+function Task5(number) {
+  let sum = 0;
+  let isPerfect = false;
+  for (let i = 1; i < number; i++) {
+    if (number % i === 0) {
+      sum += i;
+    }
+  }
+  if (sum === number) {
+    isPerfect = true;
+  }
+  if (isPerfect) {
+    console.log(number + " це число є досконалим");
+  } else {
+    console.log(number + " це число не є досконалим");
+  }
+}
+
+
+Task5(6); // виведе true
+Task5(28); // виведе true
+Task5(12); // виведе false
 
 
 
