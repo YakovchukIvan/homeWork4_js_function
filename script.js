@@ -215,28 +215,7 @@ Task5(12); // виведе false
 є досконалими. Використовуйте написану раніше функцію,
 щоб перевірити число на досконалість.
 */
-console.clear();
 
-let min = 2;
-let max = 10;
-let sum = 0;
-
-// function Task6() {
-//     for(let i = min;i < max; i++) {
-//         console.log(`Число з діапазона: "${i}"`); 
-        
-        
-//         for(let j = 0; j < max; j++ ) {
-//             if(i % j === 0) {
-//                 sum += i;
-//                 console.log(`Good`, sum === i);
-//             }
-//         }
-//     }
-// //   return sum === number;
-// }
-
-// Task6(); 
 
 const submit6 = document.querySelector(".btn_task6");
 const OnInput6_1 = document.querySelector(".input_task6-1");
@@ -280,16 +259,6 @@ submit6.onclick = function () {
     }
 
 }
-
-
-
-
-// perfectRange(1, 100); // виведе 6 та 28
-// perfectRange(1, 1000); // виведе 6, 28 та 496
-
-
-
-
 
 
 /*
