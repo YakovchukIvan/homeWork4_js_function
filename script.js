@@ -271,7 +271,6 @@ function perfectRange(min, max) {
     }
 }
 
-
 submit6.onclick = function () {
 
     if (submit1) {
